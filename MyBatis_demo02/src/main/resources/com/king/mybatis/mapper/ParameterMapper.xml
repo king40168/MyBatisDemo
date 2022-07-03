@@ -9,9 +9,45 @@
         select * from t_user
     </select>
 
-    <!--User GetUserByUserName(String username)-->
+    <!--
+        User GetUserByUserName(String username)
+        单个字面量类型的参数
+    -->
     <select id="GetUserByUserName" resultType="User">
         <!--select * from t_user where username=#{username};-->
         select * from t_user where username = '${username}';
     </select>
+
+    <!--
+        User checkLogin(String username, String password)
+        多个字面量类型的参数
+    -->
+    <select id="checkLogin" resultType="User">
+        select * from t_user where username = #{arg0} and password = #{arg1};
+    </select>
+    
+    <!--
+        User checkLoginByMap(Map<String,Object> map)
+        map集合类型的参数
+    -->
+    <select id="checkLoginByMap" resultType="User">
+        select * from t_user where username = #{username} and password = #{password};
+    </select>
+
+    <!--
+        User checkLoginByParam(@Param("username") String username,@Param("password")  String password)
+        使用@Param标识的参数
+    -->
+    <select id="checkLoginByParam" resultType="User">
+        select * from t_user where username = #{username} and password = #{password};
+    </select>
+
+    <!--
+        int insertUser(User user)
+        实体类类型的参数
+    -->
+    <insert id="insertUser">
+        insert into t_user values(null,#{username},#{password},#{age},#{sex},#{email})
+    </insert>
+
 </mapper>
