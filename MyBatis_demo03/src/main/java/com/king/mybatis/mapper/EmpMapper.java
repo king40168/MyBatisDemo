@@ -1,5 +1,6 @@
 package com.king.mybatis.mapper;
 
+import com.king.mybatis.pojo.Dept;
 import com.king.mybatis.pojo.Emp;
 import org.apache.ibatis.annotations.Param;
 
@@ -26,5 +27,10 @@ public interface EmpMapper {
      */
     Emp getEmpAndDepByStepOne(@Param("eid") Integer eid);
 
-
+    /**
+     * 处理一对多的映射关系
+     * 分步查询部门以及所有的员工信息
+     * 2. 根据did来查询员工信息
+     */
+    List<Emp> getDeptAndEmpByStepTwo(@Param("did") Integer did);
 }

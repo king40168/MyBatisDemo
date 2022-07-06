@@ -88,4 +88,11 @@
         select * from t_emp where eid = #{eid}
     </select>
 
+
+    <!--处理一对多的映射关系：分步查询-->
+    <!--List<Emp> getDeptAndEmpByStepTwo(@Param("did") Integer did)-->
+    <select id="getDeptAndEmpByStepTwo" resultType="Emp">
+        select * from t_emp where did = #{did};
+    </select>
+
 </mapper>

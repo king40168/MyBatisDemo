@@ -17,5 +17,12 @@ public interface DeptMapper {
      */
     Dept getDeptAndEmp(@Param("did") Integer did);
 
+    /**
+     * 处理一对多的映射关系
+     * 分步查询部门以及所有的员工信息
+     * 1. 查询部门信息
+     */
+    Dept getDeptAndEmpByStepOne(@Param("did") Integer did);
+
 
 }

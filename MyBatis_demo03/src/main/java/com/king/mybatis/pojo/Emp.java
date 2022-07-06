@@ -1,12 +1,14 @@
 package com.king.mybatis.pojo;
 
+import java.io.Serializable;
+
 /**
  * @author Mainx
  * @version 1.0
  * @description: 员工类
  * @date 2022/7/4 19:44
  */
-public class Emp {
+public class Emp implements Serializable {
 
     private Integer eid;
     private String empName;

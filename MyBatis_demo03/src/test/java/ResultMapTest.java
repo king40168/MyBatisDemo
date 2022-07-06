@@ -66,11 +66,21 @@ public class ResultMapTest {
         System.out.println(emp.getDept());
     }
 
+    //处理一对多映射关系：使用collection标签
     @Test
     public void testGetDeptAndEmp() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
         Dept dept = mapper.getDeptAndEmp(1);
         System.out.println(dept);
+    }
+
+    //分步查询
+    @Test
+    public void testGetDeptAndEmpByStep() {
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
+        Dept dept = mapper.getDeptAndEmpByStepOne(1);
+        System.out.println(dept.getDeptName());
     }
 }
